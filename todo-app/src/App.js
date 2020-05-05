@@ -1,7 +1,6 @@
 import React from 'react';
-import TodoList from './TodoList/todoList'
-import TodoItem from './TodoItem/todoItem'
-import AddTodo from './AddTodo/addTodo'
+import TodoList from './TodoList/todoList';
+import AddTodo from './AddTodo/addTodo';
 import './App.css';
 
 class App extends React.Component {
@@ -17,9 +16,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList />
-        <TodoItem />
         <AddTodo addTodoFunc={this.addTodo} ></AddTodo>
+        <TodoList updateTodoFunc={this.updateTodo} todos={this.state.todos}></TodoList>
       </div>
     );
   }
@@ -38,13 +36,33 @@ class App extends React.Component {
     }
   }
 
-    addTodo = async (todo) => {
-      await this.setState({todos: [...this.state.todos, todo]});
-      localStorage.setItem('todos', JSON.stringify(this.state.todos));
-      console.log(localStorage.getItem('todos'));
-      
-    }
-    
+  addTodo = async (todo) => {
+    await this.setState({
+      todos: [...this.state.todos, {
+        text: todo,
+        completed: false
+      }]
+    });
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    console.log(localStorage.getItem('todos'));
+
+  }
+
+  updateTodo = (todo) => {
+    const newTodos = this.state.todos.map(_todo => {
+      if (todo === _todo)
+        return {
+          text: _todo.text,
+          completed: !_todo.completed,
+        }
+      else
+        return _todo
+
+    });
+    this.setState({ todos: newTodos });
+    console.log(newTodos);
+
+  }
 
 }
 
