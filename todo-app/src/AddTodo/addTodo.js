@@ -1,4 +1,8 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import './style.css';
+
 
 class AddTodo extends React.Component {
 
@@ -11,16 +15,19 @@ class AddTodo extends React.Component {
 
     render() {
         return (
-            <div className="addTodoContainer">
-                <form onSubmit={(event) => { this.submitTodo(event) }}>
-                    <input id="addTodoInput" onChange={(event) => this.updateInput(event)} type="text"></input>
-                    <button type="submit">Add Todo</button>
-                </form>
+            <div>
+                <div className="todoTitle">To Do</div>
+                <div className="addTodoContainer">
+                    <form onSubmit={(event) => { this.submitTodo(event) }}>
+                        <input className="inputField" id="addTodoInput" placeholder="Write here..." onChange={(event) => this.updateInput(event)} type="text"></input>
+                        <Button size="small" className={makeStyles.margin} type="submit">Add Todo</Button>
+                    </form>
+                </div>
             </div>
         );
     }
     updateInput = (event) => {
-        this.setState({todo: event.target.value})
+        this.setState({ todo: event.target.value })
     }
     submitTodo = (event) => {
         event.preventDefault();

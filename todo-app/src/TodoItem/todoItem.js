@@ -1,13 +1,24 @@
 import React from 'react';
 import './style.css';
+import Checkbox from '@material-ui/core/Checkbox';
 
 class TodoItem extends React.Component {
-    render() {
 
+    render() {
         const { todo } = this.props;
 
         return (
-        <div className={'todoItem' + (todo.completed ? ' completed' : '')} onClick={this.toggleTodo}>{todo.text}</div>
+            <div className="todoParent">
+                <div className={'todoItem' + (todo.completed ? ' completed' : '')} onClick={this.toggleTodo}> 
+                
+                {todo.text}
+                {/* <Checkbox
+                    disabled
+                    color="primary"
+                    inputProps={{ 'aria-label': 'secondary checkbox' }} className="checkbox"/> */}
+                </div>
+               
+            </div>
         );
     }
 

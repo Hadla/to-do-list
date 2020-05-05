@@ -48,7 +48,7 @@ class App extends React.Component {
 
   }
 
-  updateTodo = (todo) => {
+  updateTodo = async (todo) => {
     const newTodos = this.state.todos.map(_todo => {
       if (todo === _todo)
         return {
@@ -59,7 +59,8 @@ class App extends React.Component {
         return _todo
 
     });
-    this.setState({ todos: newTodos });
+    await this.setState({ todos: newTodos });
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
     console.log(newTodos);
 
   }

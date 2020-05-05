@@ -1,0 +1,16 @@
+.addTodoContainer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.todoTitle {
+    font-size: 2rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2rem;
+    font-family: 'Quicksand', sans-serif;
+
+}

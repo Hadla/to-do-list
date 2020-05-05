@@ -1,8 +1,23 @@
+.todoParent {
+    display: flex;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
 .todoItem {
-    margin-bottom: 1rem;
     cursor: pointer;
+    display: flex;
+    text-align: center;
+    align-items: center;
 }
 
 .completed {
     text-decoration: line-through;
 }
+
+.inputField {
+    border-radius: 0.25rem;
+    height: 1.5rem;
+    width: 10rem;
+}
+

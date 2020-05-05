@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoItem from '../TodoItem/todoItem';
+import './style.css';
 
 class TodoList extends React.Component {
 
@@ -12,7 +13,7 @@ class TodoList extends React.Component {
                 {
                     todos.map((_todo, _index) => {
                         return (
-                            <TodoItem updateTodoFunc={this.updateTodo} key={_index} todo={_todo}></TodoItem>
+                            <TodoItem className="todoItem" updateTodoFunc={this.updateTodo} key={_index} todo={_todo}></TodoItem>
                         )
                     })
                 }
